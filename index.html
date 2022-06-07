@@ -7,24 +7,17 @@
   <title>Rapyd Checkout Toolkit</title>
 </head>
 
-<body>
+<body style="background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0">
 <h1>Rapyd Checkout Toolkit Demo</h1>
 <div id="loader">Loading...</div>
 <div id="error" style="display: none;"></div>
-<div style="width: 500px" id="rapyd-checkout"></div>
-<script>
-  const fileref = document.createElement("link");
-  fileref.rel = "stylesheet";
-  fileref.type = "text/css";
-  fileref.href = "RapydCheckoutToolkitDemo.css";
-  document.getElementsByTagName("head")[0].appendChild(fileref);
-</script>
+<div style="width: 390px" id="rapyd-checkout"></div>
 <script src="https://sandboxcheckouttoolkit.rapyd.net"></script>
 <script>
   let checkout = new RapydCheckoutToolkit({
     pay_button_text: "Click to pay",
     pay_button_color: "blue",
-    id: "checkout_4d7419fc75a721ec2cf39e80e9e20d26"
+    id: "checkout_07194759cb466a00df766a4e80429753"
   });
   checkout.displayCheckout();
   window.addEventListener('onLoading', (event) => {
