@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapyd Checkout Toolkit</title>
+    <script src="https://sandboxcheckouttoolkit.rapyd.net"></script>
+    <script>
+      window.onload = function() {
+        let checkout = new RapydCheckoutToolkit({
+          pay_button_text: "Top up",
+          pay_button_color: "#004EA8",
+          id: "checkout_07194759cb466a00df766a4e80429753",
+          close_on_complete: true,
+        });
+        checkout.displayCheckout();
+      }
+      window.addEventListener('onCheckoutPaymentSuccess', function(event) {
+        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
+      });
+      window.addEventListener('onCheckoutFailure', function(event) {
+        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
+      });
+      window.addEventListener('onCheckoutPaymentFailure', function(event) {
+        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
+      });
+    </script>
+  </head>
+  <body style="background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0">
+    <div style="width: 390px" id="rapyd-checkout"></div>
+  </body>
+</html>
