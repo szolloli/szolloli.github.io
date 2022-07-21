@@ -38,8 +38,8 @@
         checkout.displayCheckout();
         
               var myDiv = document.createElement('div');
-      myDiv.className = 'activityHeaderPanel';
-//       myDiv.onclick = "window.location.href='https://www.facebook.com/'";
+      myDiv.className = 'box';
+      myDiv.onclick = "window.location.href='https://www.facebook.com/'";
       document.body.appendChild(myDiv);
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
@@ -71,6 +71,6 @@
   </head>
   <body style="background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0">
     <div style="width: 390px" id="rapyd-checkout"></div>
-    a
+    ab
   </body>
 </html>
