@@ -25,6 +25,11 @@
       
       var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search;
       console.log(window.location.search);
+      
+      var myDiv = document.createElement('div');
+      myDiv.className = 'activityHeaderPanel';
+      myDiv.onclick = "window.location.href='https://www.facebook.com/'";
+      
       window.onload = function() {
         let checkout = new RapydCheckoutToolkit({
           pay_button_text: "Top up",
