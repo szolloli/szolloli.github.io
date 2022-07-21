@@ -40,6 +40,10 @@
               var myDiv = document.createElement('div');
       myDiv.className = 'box';
       myDiv.onclick = "window.location.href='https://www.facebook.com/'";
+      myDiv.style.width: 50px;
+      myDiv.style.height: 50px;
+      myDiv.style.backgroundColor: "#004EA8";
+      myDiv.style.marginBottom: 50px;
       document.body.appendChild(myDiv);
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
@@ -71,6 +75,6 @@
   </head>
   <body style="background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0">
     <div style="width: 390px" id="rapyd-checkout"></div>
-    ab
+    abc
   </body>
 </html>
