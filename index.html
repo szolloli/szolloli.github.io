@@ -6,12 +6,13 @@
     <title>Rapyd Checkout Toolkit</title>
     <script src="https://checkouttoolkit.rapyd.net"></script>
     <script>
-      var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search
+      var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search;
+      console.log(window.location.search);
       window.onload = function() {
         let checkout = new RapydCheckoutToolkit({
           pay_button_text: "Top up",
           pay_button_color: "#004EA8",
-          id: {window.location.pathname},
+          id: {window.location.search},
           close_on_complete: true,
         });
         checkout.displayCheckout();
