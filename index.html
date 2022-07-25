@@ -20,11 +20,10 @@
         });
         checkout.displayCheckout();
         
-                var myA = document.createElement('a');
+        var myA = document.createElement('a');
         var myButton = document.createElement('button');
-        myA.appendChild(myButton);
-        
-        
+        myButton.innerText = 'Continue in app';
+        myA.appendChild(myButton); 
         myA.href = 'exp://127.0.0.1:19000/--/path/into/app?hello=world';
         document.body.appendChild(myA);
 
@@ -32,9 +31,8 @@
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
         var myA = document.createElement('a');
         var myButton = document.createElement('button');
-        myA.appendChild(myButton);
-        
-        
+        myButton.innerText = 'Continue in app';
+        myA.appendChild(myButton); 
         myA.href = 'exp://127.0.0.1:19000/--/path/into/app?hello=world';
         document.body.appendChild(myA);
       });
@@ -48,16 +46,17 @@
       });
     </script>
     <style>
-      button {  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;}
+      button {
+        font-size:16px;
+        line-height:16px;
+        padding:10px 30px;
+        background-color:#2569bb;
+        color:#ffffff;
+        text-decoration:none;
+        border-radius:7px;
+        font-weight:normal;
+        font-family:Arial;
+      }
     </style>
   </head>
   <body style="background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0">
