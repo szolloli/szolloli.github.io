@@ -21,20 +21,17 @@
         checkout.displayCheckout();
         
         var myA = document.createElement('a');
-        var myButton = document.createElement('button');
-        myButton.innerText = 'Continue in app';
-        myA.appendChild(myButton); 
+        myA.textContent = 'Continue in app';
         myA.href = 'exp://127.0.0.1:19000/--/path/into/app?hello=world';
         document.body.appendChild(myA);
 
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
         var myA = document.createElement('a');
-        var myButton = document.createElement('button');
-        myButton.innerText = 'Continue in app';
-        myA.appendChild(myButton); 
+        myA.textContent = 'Continue in app';
         myA.href = 'exp://127.0.0.1:19000/--/path/into/app?hello=world';
         document.body.appendChild(myA);
+
       });
       window.addEventListener('onCheckoutFailure', function(event) {
         console.error('fail');
@@ -46,7 +43,7 @@
       });
     </script>
     <style>
-      button {
+      a {
         font-size:16px;
         line-height:16px;
         padding:10px 30px;
