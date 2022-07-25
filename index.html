@@ -6,23 +6,6 @@
     <title>Rapyd Checkout Toolkit</title>
     <script src="https://checkouttoolkit.rapyd.net"></script>
     <script>
-      function createBox(event){
-    var target = event.target;
-
-    if(target.className === 'box'){
-        target.parentNode.removeChild(target);
-    } else {
-        var box = document.createElement('div');
-
-        box.className = "box";
-        box.style.visibility="visible";
-        box.style.left = event.pageX + 'px';
-        box.style.top = event.pageY + 'px';
-
-        document.body.appendChild(box);
-    }
-}
-      
       var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search;
       console.log(window.location.search);
       
@@ -38,14 +21,8 @@
         checkout.displayCheckout();
 
       }
-      
-      //myDiv.addEventListener ("click", function() {
-  //alert("did something");
-        
-//});
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
-        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
-                var myA = document.createElement('a');
+        var myA = document.createElement('a');
         var myButton = document.createElement('button');
         myA.appendChild(myButton);
         
@@ -54,10 +31,8 @@
         document.body.appendChild(myA);
       });
       window.addEventListener('onCheckoutFailure', function(event) {
-        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
       });
       window.addEventListener('onCheckoutPaymentFailure', function(event) {
-        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
       });
     </script>
     <style>
