@@ -14,17 +14,11 @@
           close_on_complete: true,
         });
         checkout.displayCheckout();
-        
-        var myA = document.createElement('a');
-        myA.textContent = 'Continue in app';
-        myA.href = 'exp://127.0.0.1:19000';
-        document.body.appendChild(myA);
-
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
         var myA = document.createElement('a');
         myA.textContent = 'Continue in app';
-        myA.href = 'exp://127.0.0.1:19000/--/path/into/app?hello=world';
+        myA.href = 'symplifi://';
         document.body.appendChild(myA);
 
       });
