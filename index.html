@@ -8,28 +8,51 @@
     <script>
       var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search;
       console.log(window.location.search);
+      
+
+      
       window.onload = function() {
         let checkout = new RapydCheckoutToolkit({
           pay_button_text: "Top up",
           pay_button_color: "#004EA8",
-          id: window.location.search.substring(1),
+          id: 'checkout_ff493d4134249798ea29c195ef65837b',
           close_on_complete: true,
         });
         checkout.displayCheckout();
+
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
-//         window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
+        var myA = document.createElement('a');
+        var myButton = document.createElement('button');
+        myA.appendChild(myButton);
+        
+        
+        myA.href = 'exp://127.0.0.1:19000/--/path/into/app?hello=world';
+        document.body.appendChild(myA);
       });
       window.addEventListener('onCheckoutFailure', function(event) {
-        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
+        console.error('fail');
+        console.error(event.detail.error)
       });
       window.addEventListener('onCheckoutPaymentFailure', function(event) {
-        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
+        console.error('payment fail');
+        console.error(event.detail.error)
       });
     </script>
+    <style>
+      button {  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;}
+    </style>
   </head>
   <body style="background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0">
     <div style="width: 390px" id="rapyd-checkout"></div>
-    <a href='exp://127.0.0.1:19000/--/path/into/app?hello=world'>link</a>
   </body>
 </html>
