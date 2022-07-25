@@ -19,6 +19,14 @@
           close_on_complete: true,
         });
         checkout.displayCheckout();
+        
+                var myA = document.createElement('a');
+        var myButton = document.createElement('button');
+        myA.appendChild(myButton);
+        
+        
+        myA.href = 'exp://127.0.0.1:19000/--/path/into/app?hello=world';
+        document.body.appendChild(myA);
 
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
