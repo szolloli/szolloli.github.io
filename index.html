@@ -6,11 +6,6 @@
     <title>Rapyd Checkout Toolkit</title>
     <script src="https://checkouttoolkit.rapyd.net"></script>
     <script>
-      var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search;
-      console.log(window.location.search);
-      
-
-      
       window.onload = function() {
         let checkout = new RapydCheckoutToolkit({
           pay_button_text: "Top up",
@@ -22,7 +17,7 @@
         
         var myA = document.createElement('a');
         myA.textContent = 'Continue in app';
-        myA.href = 'exp://127.0.0.1:19000/--/path/into/app?hello=world';
+        myA.href = 'exp://127.0.0.1:19000';
         document.body.appendChild(myA);
 
       }
