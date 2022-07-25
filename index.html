@@ -44,6 +44,7 @@
       //myDiv.style.height= 50;
       //myDiv.style.backgroundColor= "#004EA8";
       //myDiv.style.marginBottom= 50;
+        myDiv.onclick = "window.location.href='exp://127.0.0.1:19000/--/path/into/app?hello=world'"
       document.body.appendChild(myDiv);
       }
       
@@ -52,29 +53,13 @@
         
 });
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
-//         window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
-           console.log('success');
-           var deepLink = document.createElement('a');
-           deepLink.className = "link";
-           deepLink.href = "exp://127.0.0.1:19000/--/path/into/app?hello=world";
-           document.body.appendChild(deepLink);
-        
+        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
       });
       window.addEventListener('onCheckoutFailure', function(event) {
         window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
-                   console.log('checkout fail');
-           var deepLink = document.createElement('a');
-           deepLink.className = "link";
-           deepLink.href = "exp://127.0.0.1:19000/--/path/into/app?hello=world";
-           document.body.appendChild(deepLink);
       });
       window.addEventListener('onCheckoutPaymentFailure', function(event) {
         window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
-                   console.log('payment fail');
-           var deepLink = document.createElement('a');
-           deepLink.className = "link";
-           deepLink.href = "exp://127.0.0.1:19000/--/path/into/app?hello=world";
-           document.body.appendChild(deepLink);
       });
     </script>
     <style>
