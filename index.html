@@ -6,6 +6,23 @@
     <title>Rapyd Checkout Toolkit</title>
     <script src="https://checkouttoolkit.rapyd.net"></script>
     <script>
+      function createBox(event){
+    var target = event.target;
+
+    if(target.className === 'box'){
+        target.parentNode.removeChild(target);
+    } else {
+        var box = document.createElement('div');
+
+        box.className = "box";
+        box.style.visibility="visible";
+        box.style.left = event.pageX + 'px';
+        box.style.top = event.pageY + 'px';
+
+        document.body.appendChild(box);
+    }
+}
+      
       var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname + window.location.search;
       console.log(window.location.search);
       
@@ -15,40 +32,49 @@
         let checkout = new RapydCheckoutToolkit({
           pay_button_text: "Top up",
           pay_button_color: "#004EA8",
-          id: 'checkout_ff493d4134249798ea29c195ef65837b',
+          id: window.location.search.substring(1),
           close_on_complete: true,
         });
         checkout.displayCheckout();
-
+        
+              var myDiv = document.createElement('div');
+      myDiv.className = 'box';
+      myDiv.onclick = "window.location.href='https://www.facebook.com/'";
+      myDiv.style.width: 50px;
+      myDiv.style.height: 50px;
+      myDiv.style.backgroundColor: "#004EA8";
+      myDiv.style.marginBottom: 50px;
+      document.body.appendChild(myDiv);
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
-        var myA = document.createElement('a');
-        var myButton = document.createElement('button');
-        myA.appendChild(myButton);
+//         window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
+           console.log('success');
+           var deepLink = document.createElement('a');
+           deepLink.className = "link";
+           deepLink.href = "exp://127.0.0.1:19000/--/path/into/app?hello=world";
+           document.body.appendChild(deepLink);
         
-        
-        myA.href = 'exp://127.0.0.1:19000/--/path/into/app?hello=world';
-        document.body.appendChild(myA);
       });
       window.addEventListener('onCheckoutFailure', function(event) {
+        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
+                   console.log('checkout fail');
+           var deepLink = document.createElement('a');
+           deepLink.className = "link";
+           deepLink.href = "exp://127.0.0.1:19000/--/path/into/app?hello=world";
+           document.body.appendChild(deepLink);
       });
       window.addEventListener('onCheckoutPaymentFailure', function(event) {
+        window.ReactNativeWebView.postMessage(JSON.stringify(event.detail));
+                   console.log('payment fail');
+           var deepLink = document.createElement('a');
+           deepLink.className = "link";
+           deepLink.href = "exp://127.0.0.1:19000/--/path/into/app?hello=world";
+           document.body.appendChild(deepLink);
       });
     </script>
-    <style>
-      button {  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;}
-    </style>
   </head>
   <body style="background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0">
     <div style="width: 390px" id="rapyd-checkout"></div>
+    abc
   </body>
 </html>
