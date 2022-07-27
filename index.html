@@ -23,6 +23,10 @@
         var iframe = document.getElementById('rapyd-checkout-frame');
         iframe.allow = 'payment';
         iframe.setAttribute('allowpaymentrequest', '');
+        
+        var checkout = document.getElementById('rapyd-checkout').innerHtml;
+        document.getElementById('rapyd-checkout').innerHtml = checkout;
+        
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
         var myA = document.createElement('a');
