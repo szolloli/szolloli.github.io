@@ -19,6 +19,9 @@
         myA.textContent = 'Continue in app';
         myA.href = 'symplifi://';
         document.body.appendChild(myA);
+        
+        var iframe = document.getElementById('rapyd-checkout-frame');
+        iframe.allow = 'payment';
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
         var myA = document.createElement('a');
