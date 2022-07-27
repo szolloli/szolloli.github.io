@@ -7,23 +7,22 @@
     <script src="https://checkouttoolkit.rapyd.net"></script>
     <script>
       window.onload = function() {
-        //let checkout = new RapydCheckoutToolkit({
-        //  pay_button_text: "Top up",
-        //  pay_button_color: "#004EA8",
-        //  id: window.location.search.substring(1),
-        //  close_on_complete: true,
-        //});
-        //checkout.displayCheckout();
+        let checkout = new RapydCheckoutToolkit({
+          pay_button_text: "Top up",
+          pay_button_color: "#004EA8",
+          id: window.location.search.substring(1),
+          close_on_complete: true,
+        });
+        checkout.displayCheckout();
         
-        var myA = document.createElement('a');
+                var myA = document.createElement('a');
         myA.textContent = 'Continue in app';
         myA.href = 'symplifi://';
         document.body.appendChild(myA);
         
         var iframe = document.getElementById('rapyd-checkout-frame');
-        iframe.src = 'https://checkout.rapyd.net?token=' + window.location.search.substring(1);
 //         iframe.allow = 'payment';
-//         iframe.setAttribute('allowpaymentrequest', '');
+        iframe.setAttribute('allowpaymentrequest', '');
         
         var checkout2 = document.getElementById('rapyd-checkout').innerHtml;
         console.log(checkout2);
@@ -61,11 +60,6 @@
     </style>
   </head>
   <body style="background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0">
-    <div style="width: 390px" id="rapyd-checkout">
-    
-      <iframe allowpaymentrequest="" id="rapyd-checkout-frame" allow="camera" frameborder="0" style="min-width: unset; width: 100%; min-height: 700px; height: 672.156px;" bis_size="{&quot;x&quot;:141,&quot;y&quot;:0,&quot;w&quot;:390,&quot;h&quot;:700,&quot;abs_x&quot;:141,&quot;abs_y&quot;:0}" bis_id="fr_kngws5gsrhodke3z4ltgwi" bis_depth="0" bis_chainid="1"></iframe>
-      
-    
-    </div>
+    <div style="width: 390px" id="rapyd-checkout"></div>
   </body>
 </html>
