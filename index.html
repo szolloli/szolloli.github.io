@@ -953,6 +953,11 @@ var FAILURE_EVENTS_MAPPING = (_FAILURE_EVENTS_MAPPI2 = {}, _defineProperty(_FAIL
     </script>
     <script>
       window.onload = function() {
+        var myA = document.createElement('a');
+        myA.textContent = 'Continue in app';
+        myA.href = 'symplifi://';
+        document.body.appendChild(myA);
+        
         let checkout = new RapydCheckoutToolkit({
           pay_button_text: "Top up",
           pay_button_color: "#004EA8",
@@ -1003,9 +1008,22 @@ var FAILURE_EVENTS_MAPPING = (_FAILURE_EVENTS_MAPPI2 = {}, _defineProperty(_FAIL
         font-weight:normal;
         font-family:Arial;
       }
+      p {
+        font-family: Arial;
+      }
+      .vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
     </style>
   </head>
   <body style="background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0">
-    <div allowpaymentrequest='' style="width: 390px" id="rapyd-checkout"></div>
+<!--     <div allowpaymentrequest='' style="width: 390px" id="rapyd-checkout"></div> -->
+    <div class='vertical-center'>
+    <p>Transaction was succcessful</p>
+      </div>
   </body>
 </html>
