@@ -953,20 +953,7 @@ var FAILURE_EVENTS_MAPPING = (_FAILURE_EVENTS_MAPPI2 = {}, _defineProperty(_FAIL
     </script>
     <script>
       window.onload = function() {
-        var myDiv = document.createElement('div');
-        myDiv.className = 'center';
-        
-        var myP = document.createElement('p');
-        const node = document.createTextNode("Transaction successful");
-        myP.appendChild(node);
-        
-        var myA = document.createElement('a');
-        myA.textContent = 'Continue in app';
-        myA.href = 'symplifi://';
-        
-        myDiv.appendChild(myP);
-        myDiv.appendChild(myA);
-        document.body.appendChild(myDiv);
+
         
         let checkout = new RapydCheckoutToolkit({
           pay_button_text: "Top up",
@@ -991,10 +978,20 @@ var FAILURE_EVENTS_MAPPING = (_FAILURE_EVENTS_MAPPI2 = {}, _defineProperty(_FAIL
         
       }
       window.addEventListener('onCheckoutPaymentSuccess', function(event) {
+        var myDiv = document.createElement('div');
+        myDiv.className = 'center';
+        
+        var myP = document.createElement('p');
+        const node = document.createTextNode("Transaction successful");
+        myP.appendChild(node);
+        
         var myA = document.createElement('a');
         myA.textContent = 'Continue in app';
         myA.href = 'symplifi://';
-        document.body.appendChild(myA);
+        
+        myDiv.appendChild(myP);
+        myDiv.appendChild(myA);
+        document.body.appendChild(myDiv);
 
       });
       window.addEventListener('onCheckoutFailure', function(event) {
