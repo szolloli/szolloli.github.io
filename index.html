@@ -151,10 +151,10 @@ var ApplePayService = function ApplePayService(context) {
     var session = new window.ApplePaySession(applePayVersion, paymentRequest);
 
     session.onvalidatemerchant = function (event) {
-      var validationURL = event.validationURL;
+      var URL = event.validationURL;
 
       _this.toolkitContext._sendMessage('APPLE_PAY_VALIDATE_MERCHANT', {
-        validationURL: 'https://app.symplifi.co/.well-known/apple-developer-merchantid-domain-association'
+        validationURL: validationURL
       });
     };
 
