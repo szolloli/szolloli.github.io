@@ -94,6 +94,40 @@
         window.addEventListener('onCheckoutPaymentSuccess', function (event) {
             console.log(event.detail);
             feedback(event);
+            
+            console.log(event.detail.status);
+            
+            if (event.detail.status === 'CLO') {
+                var myDiv = document.createElement('div');
+                myDiv.className = 'center';
+        
+                var myP = document.createElement('p');
+                const node = document.createTextNode("Transaction successful");
+                myP.appendChild(node);
+        
+                var myA = document.createElement('a');
+                myA.textContent = 'Continue in app';
+                myA.href = 'symplifi://';
+        
+                myDiv.appendChild(myP);
+                myDiv.appendChild(myA);
+                document.body.appendChild(myDiv);
+            }
+            if (response.status === 'ACT' && response.redirect_url) {
+//                 return setRedirectUrl(response.redirect_url); // furher action required
+                
+                var ifrm = document.createElement('iframe');
+                ifrm.setAttribute('id', 'ifrm'); // assign an id
+
+                document.body.appendChild(ifrm); // to place at end of document
+
+                // to place before another page element
+//                 var el = document.getElementById('marker');
+//                 el.parentNode.insertBefore(ifrm, el);
+
+                // assign url
+                ifrm.setAttribute('src', 'event.detail.redirect_url');
+            }
         });
         window.addEventListener('onCheckoutFailure', function (event) {
             console.log(event.detail.error);
