@@ -113,7 +113,7 @@
                 myDiv.appendChild(myA);
                 document.body.appendChild(myDiv);
             }
-            if (response.status === 'ACT') {
+            if (event.detail.status === 'ACT') {
 //                 return setRedirectUrl(response.redirect_url); // furher action required
                 
                 var ifrm = document.createElement('iframe');
@@ -126,7 +126,7 @@
 //                 el.parentNode.insertBefore(ifrm, el);
 
                 // assign url
-                ifrm.setAttribute('src', 'event.detail.redirect_url');
+                ifrm.setAttribute('src', event.detail.redirect_url);
             }
         });
         window.addEventListener('onCheckoutFailure', function (event) {
