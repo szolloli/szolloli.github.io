@@ -42,10 +42,12 @@
     <script>
         window.onload = function () { 
 
+
+
             let checkout = new RapydCheckoutToolkit({
                 pay_button_text: "Pay Now",
                 pay_button_color: "#4BB4D2",
-                id: 'checkout_4d4d5aa217c12bd79ccc788d9f0375f5', // your checkout page id goes here
+                id: 'checkout_3f257f1f448951b690f41157d7de5d28', // your checkout page id goes here
                 style: {
                     submit: {
                         base: {
@@ -58,7 +60,6 @@
         }
         window.addEventListener('onCheckoutPaymentSuccess', function (event) {
             console.log(event.detail);
-            feedback(event);
             
             console.log(event.detail.status);
             
@@ -80,18 +81,16 @@
                 document.body.appendChild(myDiv);
             }
             if (event.detail.status === 'ACT') {
-
+		console.log(event.detail);
 window.location.replace(event.detail.redirect_url);
 
             }
         });
         window.addEventListener('onCheckoutFailure', function (event) {
             console.log(event.detail.error);
-            feedback(event);
         });
         window.addEventListener('onCheckoutPaymentFailure', (event)=> {
             console.log(event.detail.error);
-            feedback(event);
         })
 
 
