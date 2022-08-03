@@ -50,7 +50,7 @@
             let checkout = new RapydCheckoutToolkit({
                 pay_button_text: "Pay Now",
                 pay_button_color: "#4BB4D2",
-                id: 'checkout_69754820aabff38e586f6e8fa2050d0f', // your checkout page id goes here
+                id: window.location.search.substring(1), // your checkout page id goes here
                 style: {
                     submit: {
                         base: {
