@@ -2,40 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+        <style type="text/css">
+            body, html
+            {
+                margin: 0; padding: 0; height: 100%; overflow: hidden;
+            }
 
-    <!-- Bootstrap CSS -->
-
-
-    <title>Rapyd Checkout Toolkit</title>
-    <script>
-  function resizeIframe(obj) {
-    // obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-  }
-</script>
+            #content
+            {
+                position:absolute; left: 0; right: 0; bottom: 0; top: 0px; 
+            }
+        </style>
 </head>
 
 <body>
-    <div>
-
-        <div class="container">
-
-            <!-- Feedback -->
-<!--             <div class="row justify-content-center">
-                <div class="col text-center my-4" style="display: none" id="feedback">
-                    <img src="" id="image" alt="" height="120" class="mt-2">
-                    <h3 id="title" class="my-4"></h3>
-                    <p id="message"></p>
-                    <a role="button" class="btn btn-custom mt-2" href="" id="action"></a>
-                </div>
-            </div> -->
-
-            <!-- iframe -->
-            <div class="row justify-content-center">
+            <div id="placeholder" class="row justify-content-center">
                 <div class="col" style="max-width: 100%;" id="rapyd-checkout"></div>
             </div>
-        </div>
-    </div>
 
     <!-- code to display the iframe -->
     <script src="https://checkouttoolkit.rapyd.net"></script>
@@ -47,7 +30,7 @@
             let checkout = new RapydCheckoutToolkit({
                 pay_button_text: "Pay Now",
                 pay_button_color: "#4BB4D2",
-                id: 'checkout_3f257f1f448951b690f41157d7de5d28', // your checkout page id goes here
+                id: 'checkout_69754820aabff38e586f6e8fa2050d0f', // your checkout page id goes here
                 style: {
                     submit: {
                         base: {
@@ -82,7 +65,24 @@
             }
             if (event.detail.status === 'ACT') {
 		console.log(event.detail);
-window.location.replace(event.detail.redirect_url);
+
+
+               var ifrm = document.createElement('iframe');
+                ifrm.setAttribute('id', 'ifrm'); // assign an id
+
+                
+                const elem = document.getElementById('placeholder');
+                elem.replaceWith(ifrm);
+
+                // to place before another page element
+//                 var el = document.getElementById('marker');
+//                 el.parentNode.insertBefore(ifrm, el);
+
+                // assign url
+                ifrm.setAttribute('src', 'https://www.shmu.sk/sk/?page=1');
+		ifrm.setAttribute('frameborder', 0);
+ifrm.setAttribute('width', '100%');
+ifrm.setAttribute('height', '100%');
 
             }
         });
@@ -116,17 +116,6 @@ window.location.replace(event.detail.redirect_url);
             document.getElementById('feedback').style.display = "block";
         }
     </script>
-<style>
-div {
-height: 100%;}
-.row {
- width: 100%;
- Height: 100%;
-}
-.justify-content-center {
-}
-</style>
 
 </body>
 </html>
-
