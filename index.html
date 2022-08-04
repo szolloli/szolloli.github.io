@@ -86,7 +86,7 @@
                 elem.replaceWith(myDiv);
             }
             if (event.detail.status === 'ACT') {
-		window.location.replace('exp://127.0.0.1:19000/');
+		window.location.replace(`exp://127.0.0.1:19000/--/?url=${event.detail.redirect_url}`);
 		function foo(param) {
 			alert(param.contentWindow.location);
 		}
