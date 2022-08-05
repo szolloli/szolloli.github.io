@@ -33,10 +33,10 @@
 		console.log(event.detail.status);
 		console.log(event.detail);
             if (event.detail.status === 'CLO') {
-		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=0`);
+		window.location.replace(`symplifi://--/?redirect=0`);
             }
             if (event.detail.status === 'ACT') {
-		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=1&url=${event.detail.redirect_url}`);
+		window.location.replace(`symplifi://--/?redirect=1&url=${event.detail.redirect_url}`);
             }
         });
         window.addEventListener('onCheckoutFailure', function (event) {	
