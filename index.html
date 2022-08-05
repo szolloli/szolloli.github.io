@@ -69,13 +69,14 @@
 // 		},1000);
             }
             if (event.detail.status === 'ACT') {
+		    window.location.href = event.detail.redirect_url;
 // 		    alert('act');
-		var a = document.createElement('a');
-		    a.id='href';
-		a.href = `symplifi://--/?redirect=1&url=${event.detail.redirect_url}`;
-      var linkText = document.createTextNode("Continue");
-      a.appendChild(linkText);
-		document.getElementById('rapyd-checkout').replaceWith(a);
+// 		var a = document.createElement('a');
+// 		    a.id='href';
+// 		a.href = `symplifi://--/?redirect=1&url=${event.detail.redirect_url}`;
+//       var linkText = document.createTextNode("Continue");
+//       a.appendChild(linkText);
+// 		document.getElementById('rapyd-checkout').replaceWith(a);
 // 		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=1&url=${event.detail.redirect_url}`);
 		    
 // 		window.location.replace(`symplifi://--/?redirect=1&url=${event.detail.redirect_url}`);
