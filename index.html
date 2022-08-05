@@ -35,6 +35,7 @@
             checkout.displayCheckout();
         }
         window.addEventListener('onCheckoutPaymentSuccess', function (event) {
+		console.log('success');
             if (event.detail.status === 'CLO') {
 		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=0`);
             }
@@ -43,9 +44,13 @@
             }
         });
         window.addEventListener('onCheckoutFailure', function (event) {
+		
+		console.log('checkout fail');
             console.log(event.detail.error);
         });
         window.addEventListener('onCheckoutPaymentFailure', (event)=> {
+		
+		console.log('payment fail');
             console.log(event.detail.error);
         })
 
