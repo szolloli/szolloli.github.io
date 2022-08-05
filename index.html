@@ -44,8 +44,8 @@
 		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=0`);
             }
             if (event.detail.status === 'ACT') {
-		    window.alert("redirect");
-// 		window.location.replace(`exp://127.0.0.1:19000/--/?url=${event.detail.redirect_url}`);
+// 		    window.alert("redirect");
+		window.location.replace(`exp://127.0.0.1:19000/--/?url=${event.detail.redirect_url}`);
             }
         });
         window.addEventListener('onCheckoutFailure', function (event) {
