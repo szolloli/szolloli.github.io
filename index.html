@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style type="text/css">
@@ -15,22 +14,17 @@
 </head>
 
 <body>
-                <div  style="width: 390px" id="rapyd-checkout"></div>
+    <div  style="width: 390px" id="rapyd-checkout"></div>
 
     <!-- code to display the iframe -->
     <script src="https://checkouttoolkit.rapyd.net"></script>
     <script>
         window.onload = function () { 
-
-
-
             let checkout = new RapydCheckoutToolkit({
                 pay_button_text: "Top up",
                 pay_button_color: "#004EA8",
                 id:  window.location.search.substring(1), // your checkout page id goes here
-
                 close_on_complete: true,
-
             });
             checkout.displayCheckout();
         }
@@ -39,27 +33,20 @@
 		console.log(event.detail.status);
 		console.log(event.detail);
             if (event.detail.status === 'CLO') {
-		    
-		    alert("done");
 		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=0`);
             }
             if (event.detail.status === 'ACT') {
-// 		    window.alert("redirect");
-		window.location.replace(`exp://127.0.0.1:19000/--/?url=${event.detail.redirect_url}`);
+		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=1&url=${event.detail.redirect_url}`);
             }
         });
-        window.addEventListener('onCheckoutFailure', function (event) {
-		
-		console.log('checkout fail');
+        window.addEventListener('onCheckoutFailure', function (event) {	
+	    console.log('checkout fail');
             console.log(event.detail.error);
         });
         window.addEventListener('onCheckoutPaymentFailure', (event)=> {
-		
-		console.log('payment fail');
+	    console.log('payment fail');
             console.log(event.detail.error);
         })
-
-
     </script>
 </body>
 </html>
