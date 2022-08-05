@@ -35,10 +35,8 @@
             let checkout = new RapydCheckoutToolkit({
                 pay_button_text: "Top up",
                 pay_button_color: "#004EA8",
-                id:  window.location.search.substring(1), // your checkout page id goes here
+                id:  'checkout_28b3fbe35860a414e5b09e6d77b66798', // your checkout page id goes here
                 close_on_complete: true,
-		complete_payment_url: 'https://shmu.sk',
-		error_payment_url: 'https://shmu.sk'
             });
             checkout.displayCheckout();
         }
