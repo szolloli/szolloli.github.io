@@ -37,6 +37,8 @@
 		    
 		var a = document.createElement('a');
 		a.href = `exp://127.0.0.1:19000/--/?redirect=0}`;
+		          var linkText = document.createTextNode("finish");
+      a.appendChild(linkText);
 		document.body.appendChild(a);
 		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=0`);
 // 		    window.location.replace(`symplifi://--/?redirect=0`);
@@ -44,8 +46,8 @@
             if (event.detail.status === 'ACT') {
 		var a = document.createElement('a');
 		a.href = `exp://127.0.0.1:19000/--/?redirect=1&url=${event.detail.redirect_url}`;
-		    
-      		a.title = "Continue";
+      var linkText = document.createTextNode("redirect");
+      a.appendChild(linkText);
 		document.body.appendChild(a);
 // 		    window.alert('active');
 		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=1&url=${event.detail.redirect_url}`);
