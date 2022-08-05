@@ -37,6 +37,8 @@
                 pay_button_color: "#004EA8",
                 id:  window.location.search.substring(1), // your checkout page id goes here
                 close_on_complete: true,
+		complete_payment_url: 'symplifi://--/?redirect=0',
+		error_payment_url: 'https://shmu.sk'
             });
             checkout.displayCheckout();
         }
