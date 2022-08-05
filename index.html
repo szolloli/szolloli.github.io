@@ -36,6 +36,8 @@
         }
         window.addEventListener('onCheckoutPaymentSuccess', function (event) {
 		console.log('success');
+		console.log(event.detail.status);
+		console.log(event.detail);
             if (event.detail.status === 'CLO') {
 		window.location.replace(`exp://127.0.0.1:19000/--/?redirect=0`);
             }
