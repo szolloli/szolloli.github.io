@@ -17,7 +17,26 @@
 
     <!-- code to display the iframe -->
     <script src="https://checkouttoolkit.rapyd.net"></script>
-	<a href="exp://192.168.31.148:19000">tuto</a>
+	
+	<script>
+		function assign() {
+			setTimeout(() => {window.location.assign('exp://192.168.31.148:19000');},1000);
+}
+		
+				function href() {
+			setTimeout(() => {window.location.href = 'exp://192.168.31.148:19000';},1000);
+}
+		
+				function replace() {
+			setTimeout(() => {window.location.replace('exp://192.168.31.148:19000');},1000);
+}
+	</script>
+	
+<p id="href" onclick="href()">href.</p>
+	
+<p id="replace" onclick="replace()">replace.</p>
+	
+<p id="assign" onclick="assign()">assign.</p>
     <script>
         window.onload = function () { 
             let checkout = new RapydCheckoutToolkit({
