@@ -43,8 +43,8 @@
             let checkout = new RapydCheckoutToolkit({
                 pay_button_text: "Top up",
                 pay_button_color: "#004EA8",
-		id: 'checkout_0863a92d659985e443aa206daf5a3de0',
-//                 id: window.location.search.substring(1), // your checkout page id goes here
+// 		id: 'checkout_0863a92d659985e443aa206daf5a3de0',
+                id: window.location.search.substring(1), // your checkout page id goes here
                 close_on_complete: true,
             });
             checkout.displayCheckout();
