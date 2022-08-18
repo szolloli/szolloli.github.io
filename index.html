@@ -68,11 +68,13 @@ text-align: center;
         });
         window.addEventListener('onCheckoutPaymentSuccess', function (event) {
             if (event.detail.status === 'CLO') {
+		    alert("closed");
 		setTimeout(() => {
 		window.location.assign(`symplifi://--/?redirect=0`);
 		},500);
             }
             if (event.detail.status === 'ACT') {
+		    alert("active");
 		window.location.href = event.detail.redirect_url;
             }
         });
