@@ -9,6 +9,26 @@
             {
                 background-color: #f2f2f2; display: flex; align-items: center; flex-direction: column; margin: 0;
             }
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #004ea8; /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+position: absolute;
+Top: 200px;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
         </style>
 </head>
 
@@ -17,38 +37,35 @@
 
     <!-- code to display the iframe -->
     <script src="https://checkouttoolkit.rapyd.net"></script>
-	
-	<script>
-		function assign() {
-			// exp://192.168.31.148:19000
-			setTimeout(() => {window.location.assign('symplifi://');},1000);
-}
-		
-				function href() {
-			setTimeout(() => {window.location.href = 'symplifi://';},1000);
-}
-		
-				function replace() {
-			setTimeout(() => {window.location.replace('symplifi://');},1000);
-}
-	</script>
-	
-<p id="href" onclick="href()">href.</p>
-	
-<p id="replace" onclick="replace()">replace.</p>
-	
-<p id="assign" onclick="assign()">assign.</p>
+
     <script>
+	var isLoading = false;
         window.onload = function () { 
             let checkout = new RapydCheckoutToolkit({
                 pay_button_text: "Top up",
                 pay_button_color: "#004EA8",
-// 		id: 'checkout_0863a92d659985e443aa206daf5a3de0',
-                id: window.location.search.substring(1), // your checkout page id goes here
+		//id: 'checkout_c2b0be8cbf251249f0fec9ab23d851b1',
+                 id: window.location.search.substring(1), // your checkout page id goes here
                 close_on_complete: true,
             });
             checkout.displayCheckout();
         }
+        window.addEventListener('onLoading', function (event) {
+		isLoading = !isLoading;
+		if (isLoading) {
+			console.log('loading');
+			const loadingCircle = document.createElement('div');
+			loadingCircle.className = 'loader';
+			loadingCircle.id = '1';
+
+			const elem = document.getElementById('rapyd-checkout');
+			elem.appendChild(loadingCircle);
+		} else {
+			console.log('loaded');
+			const elem = document.getElementById('1');
+			elem.remove();
+		}
+        });
         window.addEventListener('onCheckoutPaymentSuccess', function (event) {
             if (event.detail.status === 'CLO') {
 		setTimeout(() => {
