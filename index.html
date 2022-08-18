@@ -88,7 +88,10 @@ background-color: 'red';
             }
             if (event.detail.status === 'ACT') {
 		    //alert("active");
-		window.location.href = event.detail.redirect_url;
+		//window.location.href = event.detail.redirect_url;
+		    		setTimeout(() => {
+		window.location.assign(event.detail.redirect_url);
+		},500);
             }
         });
         window.addEventListener('onCheckoutFailure', function (event) {	
