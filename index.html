@@ -24,6 +24,11 @@ left: 0;
 right: 0;
 text-align: center;
 }
+.button {
+width: 80px;
+height: 80px;
+background-color: 'red';
+		}
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
@@ -69,6 +74,14 @@ text-align: center;
         window.addEventListener('onCheckoutPaymentSuccess', function (event) {
             if (event.detail.status === 'CLO') {
 		    //alert("closed");
+		    	const loadingCircle = document.createElement('a');
+			loadingCircle.className = 'button';
+			loadingCircle.id = '2';
+		    	loadingCircle.href = 'symplifi://checkout?code=success'
+		    
+		    	const elem = document.getElementById('rapyd-checkout');
+			elem.appendChild(loadingCircle);
+		    	
 		setTimeout(() => {
 		window.location.assign(`symplifi://--/?redirect=0`);
 		},500);
