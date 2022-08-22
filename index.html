@@ -87,7 +87,7 @@ background-color: 'red';
 		},500);
             }
             if (event.detail.status === 'ACT') {
-		    //alert("active");
+		    alert("active");
 		//window.location.href = event.detail.redirect_url;
 		    		setTimeout(() => {
 		window.location.assign(event.detail.redirect_url);
@@ -95,10 +95,12 @@ background-color: 'red';
             }
         });
         window.addEventListener('onCheckoutFailure', function (event) {	
+		alert("checkout failure");
 	    console.log('checkout fail');
             console.log(event.detail.error);
         });
         window.addEventListener('onCheckoutPaymentFailure', (event)=> {
+		alert("payment failure");
 	    console.log('payment fail');
             console.log(event.detail.error);
         })
