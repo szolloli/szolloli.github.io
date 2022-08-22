@@ -172,7 +172,7 @@ var linker = new DeepLinker({
 		    
 		linker.openURL('symplifi://checkout?code=success');
 // 		window.location.assign('https://shmu.sk');
-		window.location.assign = 'symplifi://checkout?code=success';
+		window.location = 'symplifi://checkout?code=success';
 // 		    alert("closed");
 		    	const loadingCircle = document.createElement('a');
 			loadingCircle.className = 'button';
@@ -186,7 +186,7 @@ var linker = new DeepLinker({
 		setTimeout(() => {
 			
 // 		window.location.assign('https://shmu.sk');
-		window.location.assign('symplifi://checkout?code=success');
+		window.location ='symplifi://checkout?code=success';
 		},500);
             }
             if (event.detail.status === 'ACT') {
