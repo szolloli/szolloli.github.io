@@ -24,6 +24,14 @@ left: 0;
 right: 0;
 text-align: center;
 }
+		      p {
+        font-family: Arial;
+      }
+      .center {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+      }
 		      a {
         font-size:16px;
         line-height:16px;
@@ -176,24 +184,22 @@ var linker = new DeepLinker({
             if (event.detail.status === 'CLO') {
 		    
 		    
-		linker.openURL('symplifi://checkout?code=success');
-// 		window.location.assign('https://shmu.sk');
-		window.location = 'symplifi://checkout?code=success';
-// 		    alert("closed");
-		    	const loadingCircle = document.createElement('a');
-			loadingCircle.className = 'button';
-		    loadingCircle.textContent = 'Replacement link text';
-			loadingCircle.id = '2';
-		    	loadingCircle.href = 'symplifi://checkout?code=success'
+                var myDiv = document.createElement('div');
+                myDiv.className = 'center';
+        
+                var myP = document.createElement('p');
+                const node = document.createTextNode("Transaction successful");
+                myP.appendChild(node);
+        
+                var myA = document.createElement('a');
+                myA.textContent = 'Continue in app';
+                myA.href = 'symplifi://checkout?code=success';
+        
+                myDiv.appendChild(myP);
+                myDiv.appendChild(myA);
 		    
-		    	const elem = document.getElementById('rapyd-checkout');
-			elem.appendChild(loadingCircle);
-		    	
-		setTimeout(() => {
-			
-// 		window.location.assign('https://shmu.sk');
-		window.location ='symplifi://checkout?code=success';
-		},5000);
+		var elem = document.getElementById('placeholder');
+                elem.replaceWith(myDiv);
             }
             if (event.detail.status === 'ACT') {
 		    alert("active");
